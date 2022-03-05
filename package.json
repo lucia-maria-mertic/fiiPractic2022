@@ -10,9 +10,6 @@
   "dependencies": {
     "serve": "13.0.2"
   },
-  "devDependencies": {
-    "nodemon": "2.0.15"
-  },
   "author": "",
   "license": "ISC"
 }
