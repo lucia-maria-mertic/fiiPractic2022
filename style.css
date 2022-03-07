@@ -79,10 +79,8 @@ aside > div + div {
     width: calc(100% / 7)
 }
 #calendar-wrapper section > div {
-    font-weight: bold;
     margin: 0 0 10px;
 }
-#calendar-wrapper section > div ~ div:nth-child(1n + 8) {
-    font-weight: normal;
-    margin: 0;
+#calendar-wrapper section > div:nth-child(-1n + 7) {
+    font-weight: bold;
 }
