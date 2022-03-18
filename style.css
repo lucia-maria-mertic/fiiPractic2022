@@ -11,6 +11,10 @@ body, button {
     font: 14px Arial;
 }
 
+button {
+    cursor: pointer
+}
+
 #wrapper {
     max-width: 960px;
     margin: 0 auto;   
@@ -30,6 +34,10 @@ body, button {
     color: white;
     padding: 5px 15px;
     width: auto;
+}
+
+[name="calendar-current-month"] {
+    flex: 1
 }
 
 button > i {
@@ -72,15 +80,49 @@ aside > div + div {
 #calendar-wrapper section {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 0 10px 7px;
+    padding: 10px 0;
 }
 
 #calendar-wrapper section > div {
-    width: calc(100% / 7)
-}
-#calendar-wrapper section > div {
-    margin: 0 0 10px;
+    padding: 3px 0;
+    position: relative;
+    text-align: center;
+    width: calc(100% / 7);
 }
 #calendar-wrapper section > div:nth-child(-1n + 7) {
     font-weight: bold;
+    cursor: default;
+}
+#calendar-wrapper section > div:nth-child(1n + 8):not(.dim) {
+    cursor: pointer;
+}
+#calendar-wrapper section > div:nth-child(1n + 8):not(.dim):hover {
+    background-color: grey;
+}
+#calendar-wrapper section > div.dim {
+    color: gray;
+    cursor: default;
+}
+#calendar-wrapper section > div.activeDay {
+    background-color: gray;
+}
+#calendar-wrapper section > div.hasEvents:after {
+    border: 2px solid red;
+    border-radius: 2px;
+    content: '';
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+
+#calendar-wrapper header {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#calendar-wrapper header button {
+    background-color: transparent;
+    border: 0 none;
+    margin: 0 3px
 }
