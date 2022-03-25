@@ -1,28 +1,32 @@
-(() => {
-  const calendar = document.getElementById('calendar-wrapper');
-  calendar.removeChild(calendar.lastElementChild);
+import { render as renderHeader } from './app/components/header.js';
+import { render as renderDatePicker } from './app/components/date-picker.js';
+import { createElement } from './app/dom-utils.js'
 
-  const section = document.createElement('section');
-  const labels = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+(() => {  
+  const appElement = document.getElementById('wrapper');
+  
+  renderHeader(appElement);
+  renderAppContent(appElement);
 
-  for(let i = 0; i < labels.length; i++) {
-    const div = document.createElement('div');
-    div.textContent = labels[i];
-    section.appendChild(div);
+  renderDatePicker(document.getElementById("calendar-wrapper"));
+
+  function renderAppContent(rootElement) {
+    const element = createElement('section', {
+      innerHTML: `
+        <aside>
+          <div id="calendar">
+              <h3>Calendar</h3>
+              <div id="calendar-wrapper"></div>
+          </div>
+          <div id="categories">
+              <h3>Categories</h3>
+          </div>
+        </aside>
+        <main>
+            <h2>Events of the day</h2>
+        </main>
+      `
+    });
+    rootElement.appendChild(element);
   }
-
-  const date = new Date();
-  date.setDate(1);
-  const currentMonth = date.getMonth();
-
-  let day = 1;
-
-  while(date.getMonth() === currentMonth) {
-    const div = document.createElement('div');
-    div.textContent = day;
-    section.appendChild(div);
-    date.setDate(++day);
-  }
-
-  calendar.appendChild(section);
 })();
