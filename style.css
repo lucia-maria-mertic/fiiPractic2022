@@ -131,3 +131,57 @@ aside > div + div {
     color: red;
     background-color: bisque;
 }
+
+#app-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: rgba(0,0,0,0.6);
+}
+
+#app-modal > div {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px red;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: auto;
+}
+
+#app-modal form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: auto;
+}
+
+#app-modal label:first-of-type {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#app-modal label {
+    font-weight: bold;
+    margin: 15px 0 5px;
+}
+
+#app-modal input,
+#app-modal textarea,
+#app-modal select {
+    padding: 6px;
+
+}
+
+#app-modal .actions {
+    align-content: space-between;
+    display: flex;
+    gap: 5px;
+    margin: 15px 0 0
+}
+#app-modal .actions button {
+    flex: 1
+}
