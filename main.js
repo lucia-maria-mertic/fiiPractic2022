@@ -2,6 +2,8 @@ import { render as renderHeader } from './app/components/header.js';
 import { render as renderDatePicker } from './app/components/date-picker.js';
 import { createElement } from './app/dom-utils.js'
 
+import { get } from './app/storage-utils.js'
+
 (() => {  
   const appElement = document.getElementById('wrapper');
   
@@ -9,6 +11,8 @@ import { createElement } from './app/dom-utils.js'
   renderAppContent(appElement);
 
   renderDatePicker(document.getElementById("calendar-wrapper"));
+
+  console.log(get('event'))
 
   function renderAppContent(rootElement) {
     const element = createElement('section', {

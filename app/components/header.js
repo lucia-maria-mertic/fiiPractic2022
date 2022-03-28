@@ -1,5 +1,5 @@
 import { createElement, compile } from '../dom-utils.js';
-
+import { render as modalRender } from './modal.js';
 const template = `
   <h1>{title}</h1>
   <button name="add-event"><i>+</i>{buttonLabel}</button>
@@ -14,4 +14,7 @@ export const render = (rootElement) => {
     })
   });
   rootElement.appendChild(element);
+
+  const addEventButton = rootElement.querySelector('.app-header button');
+  addEventButton.addEventListener('click', modalRender, false)
 }
